@@ -5,16 +5,60 @@
     padding: 0;margin:0;box-sizing: border-box;
     outline:0;transition:all .4s ease-in-out;
 }
+:root{
+    --bg-color:#fff;
+    --display-color:#cad2d3;
+    --ac-eval-ce-color:#ADA2FF;
+    --ac-eval-ce-text-color:rgb(31, 60, 121);
+    --btn-operator-color:#FEDEFF ;
+    --btn-operator-text-color:rgb(105, 12, 97);
+    --icon-color:#000;
+    --btn-no-color:rgb(186, 217, 246);
+    --btn-no-text-color:#000;
+    --btn-sci-color:rgb(238, 233, 237);
+}
+.darkmode{
+    --bg-color:#121b2f;
+    --display-color:#525657;
+    --ac-eval-ce-color:#202040;
+    --ac-eval-ce-text-color:rgb(189, 170, 175);
+    --btn-operator-color:#202060 ;
+    --btn-operator-text-color:rgb(174, 165, 162);
+    --icon-color:#fff;
+    --btn-no-text-color:#000;
+    --btn-sci-color:rgb(79, 76, 79);
+    --btn-sci-text-color:rgb(238, 233, 237);
+
+}
 body{
     font-family: 'Open Sans', sans-serif;
-    background-color: #296c97;
-background-image: linear-gradient(160deg, #296c97 0%, #3fb6ae 100%);
+    background-color: #8EC5FC;
+background-image: linear-gradient(45deg, #8EC5FC 9%, #E0C3FC 22%, #875be1 66%, #8d4ca7 100%);
 
 
 }
-i {
-    text-decoration: none;
-    color: #fff;
+.head{
+    display:flex;
+    gap:40px;
+    width:50%;
+    height:60px;
+    justify-content: space-around;
+    margin-bottom:10px;
+    margin-left: 40px;
+    position: relative;
+    top:50px
+    
+}
+h2{ 
+    /* border:2px solid green; */
+    text-transform: uppercase;
+    
+}
+#icon{
+    width:30px;
+    cursor:pointer;
+    border-radius: 50%;
+    background-color:var(--icon-color);
 }
 .container{
     height:100vh;
@@ -28,60 +72,37 @@ i {
     height:auto;
     width:auto;
     box-shadow: 5px 5px 20px #2423235a;
+    border-radius: 10px;
+    outline: none;
     
 }
-.toggler{
-    position: absolute;
-    top:30px;
-    right: 30px;
-    color:#fff;
-    cursor:pointer;
-    z-index:2;
-}
-.toggler .active{
-    color:#333;
 
-}
-.toggler .active::before{
-    background-color: #fff;
 
-}
-.toggler::before{
-    content: '';
-    height:30px;
-    width: 30px;
-    position: absolute;
-    top:50%;
-    border-radius: 20px;
-    transform:translate(-50%,-50%);
-    background-color: #333;
-    z-index: -1;
 
+.display #screen 
+{
+    margin-bottom: .5em;
+    width: auto;
+    height: 50px;
+    font-size: 35px;
+    outline: none;
+    border: none;
+    text-align: right;
+    padding-right: .5em;
+    background: #ecf0f3;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0px #0a1e231f;
 }
-#display{
-    margin:0 10px;
-    height: 150px;width: auto;
-    max-width: 250px;
-    display:flex;
-    align-items: flex-end;
-    font-size: 1.8rem;
-    justify-content: flex-end;
-    margin-bottom: 15px;
-    overflow-x: scroll;
-}
-#display::-webkit-scrollbar{
-    display:block;
-    height: 3px;
-}
+
 
 
 button{
-    height:50px;
-    width:50px;
-    border:0;
-    margin:6px;
-    border-radius:20px;
-    font-size:1.6rem;
+    height:30px;
+    width:60px;
+    border:.3px solid grey;
+    margin:4px;
+    border-radius:9px;
+    font-size:1rem;
     cursor:pointer;
     transition:all .2s ease-in-out;
     box-shadow: 0 5px 10px 0px #0a1e231f;
@@ -89,60 +110,39 @@ button{
 }
 button:hover{
     transform: scale(1.1);
+    background-color: rgba(128, 128, 128, 0.523);
 }
 
 
-/* light theme */
+
 .calculator{
-    background-color:#fff    
+    background-color:var(--bg-color);    
 }
 
 .calculator #display{
-    color:#cad2d3;
+    background-color:var(--display-color);
 }
-.calculator button#clear{
-    background-color: #ADA2FF;
-
-    color: rgb(31, 56, 112);
-
-}
-.calculator button#equal{
-    background-color: #ADA2FF;
-    color: rgb(31, 56, 112);
-
-}
-.calculator button.btn-operator{
-    background-color:#FEDEFF ;
-    color: rgb(105, 12, 97);
-
-}
-.calculator button.btn-number{
-    background-color:#C0DEFF ;
-    color: rgb(12, 32, 105);
-}
-
-/* dark theme */
-.calculator.darkmode{
-    background-color:#121b2f;  
-}
-
-.calculator .darkmode#display{
-    color:#fff;
-}
-.calculator button#clear,
-.calculator button#equal{
-    background-color: #202040;
-
-    color: rgb(189, 170, 175);
-
+.calculator button#ce,
+.calculator button#ac,
+.calculator button#eval{
+    background-color: var(--ac-eval-ce-color);
+    color: var(--ac-eval-ce-text-color);
 }
 
 .calculator button.btn-operator{
-    background-color:#202060 ;
-    color: rgb(174, 165, 162);
+    background-color:var(  --btn-operator-color );
+    color: var( --btn-operator-text-color);
 
 }
-.calculator button.btn-number{
-    background-color:#602080 ;
-    color: rgb(193, 197, 208);
+.calculator button.btn-no{
+    background-color:var( --btn-no-color);
+    color: var( --btn-no-text-color);
+
 }
+.calculator button.btn-sci{
+    background-color:var( --btn-sci-color);
+    color: var(   --btn-sci-text-color);
+
+}
+
+

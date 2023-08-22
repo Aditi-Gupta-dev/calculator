@@ -1,42 +1,87 @@
-// JavaScript for Calculator
+var screen=document.querySelector('#screen');
+    var btn=document.querySelectorAll('.btn');
 
-// Selecting the display element
-const display = document.getElementById('display');
+    /*============ For getting the value of btn, Here we use for loop ============*/
+    for(item of btn)
+    {
+        item.addEventListener('click',(e)=>{
+            btntext=e.target.innerText;
 
-// Adding click event listeners to all number and operator buttons
-const buttons = document.querySelectorAll('.btn-number, .btn-operator');
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    const buttonText = button.textContent;
-    display.textContent += buttonText;
-  });
-});
+            if(btntext =='×')
+            {
+                btntext= '*';
+            }
 
-// Adding click event listener to the equal button
-const equalButton = document.getElementById('equal');
-equalButton.addEventListener('click', () => {
-  try {
-    const result = eval(display.textContent); // Using eval for simplicity
-    display.textContent = result;
-  } catch (error) {
-    display.textContent = 'Error';
-  }
-});
+            if(btntext=='÷')
+            {
+                btntext='/';
+            }
+            screen.value+=btntext;
+        });
+    }
 
-// Adding click event listener to the clear button
-const clearButton = document.getElementById('clear');
-clearButton.addEventListener('click', () => {
-  display.textContent = '';
-});
+    function sin()
+    {
+        screen.value=Math.sin(screen.value);
+    }
 
-// Adding click event listener to the backspace button
-const backspaceButton = document.getElementById('backspace');
-backspaceButton.addEventListener('click', () => {
-  display.textContent = display.textContent.slice(0, -1);
-});
+    function cos()
+    {
+        screen.value=Math.cos(screen.value);
+    }
 
-// Adding click event listener to the dark mode toggler
-const darkModeToggler = document.querySelector('.toggler');
-darkModeToggler.addEventListener('click', () => {
-  document.body.classList.toggle('darkmode');
-});
+    function tan()
+    {
+        screen.value=Math.tan(screen.value);
+    }
+
+    function pow()
+    {
+        screen.value=Math.pow(screen.value,2);
+    }
+
+    function sqrt()
+    {
+        screen.value=Math.sqrt(screen.value,2);
+    }
+
+    function log()
+    {
+        screen.value=Math.log(screen.value);
+    }
+
+    function pi()
+    {
+        screen.value= 3.14159265359;
+    }
+
+    function e()
+    {
+        screen.value=2.71828182846;
+    }
+
+    function fact()
+    {
+        var i, num, f;
+        f=1
+        num=screen.value;
+        for(i=1; i<=num; i++)
+        {
+            f=f*i;
+        }
+
+        i=i-1;
+
+        screen.value=f;
+    }
+
+    function backspc()
+    {
+        screen.value=screen.value.substr(0,screen.value.length-1);
+    }
+
+    var icon=document.getElementById("icon");
+    icon.onclick=function(){
+        document.body.classList.toggle("darkmode");
+        
+    }
